@@ -1,23 +1,18 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Sorter {
     public void sort(String input, List<String> in){
-        int[] numbers = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
-        boolean isSorted = false;
-        int buf;
-        while (!isSorted){
-            isSorted = true;
-            for (int i = 0; i < (numbers != null ? numbers.length : 0) -1; i++) {
-                if(numbers[i] > numbers[i+1]){
-                    isSorted = false;
+        StringBuilder stringBuilder = new StringBuilder();
+        char [] chars = input.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '[')
+                stringBuilder.insert(i,"\n");
 
-                    buf = numbers[i];
-                    numbers[i] = numbers[i+1];
-                    numbers[i+1] = buf;
-                }
-            }
+            stringBuilder.append(chars[i]);
         }
-        in.add(Arrays.toString(numbers));
+
+        in.add(stringBuilder.toString());
     }
 }

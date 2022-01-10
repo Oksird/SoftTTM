@@ -3,9 +3,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class WriterToFile {
-    public void write(String line, int counter) throws IOException {
+    public void write(String line) throws IOException {
 
-        File file = new File("/Users/max/Desktop/LabJava/New/"+Integer.toString(counter)+".txt");
+        File file = new File("/Users/max/Desktop/LabJava/New/SOS.txt");
         boolean check = true;
         try {
             if (!file.exists()) {

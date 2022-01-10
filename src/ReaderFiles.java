@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
 
 
 public class ReaderFiles implements Callable<List<String>> {
@@ -34,10 +35,20 @@ public class ReaderFiles implements Callable<List<String>> {
 
         List<String> listOfSorted = new ArrayList<>();
         Sorter sorter = new Sorter();
-        while ((in = bufferedReader.readLine()) != null) {
+      /*
+
+       while ((in = bufferedReader.readLine()) != null) {
             sorter.sort(in, listOfSorted);
 
         }
+       */
+
+        in =  bufferedReader.lines().collect(Collectors.joining());
+        sorter.sort(in,listOfSorted);
+
+
+
+
         setLines(listOfSorted);
         setFileName(file.getName());
 

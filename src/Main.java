@@ -6,10 +6,11 @@ import java.util.Scanner;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static final String DIR_PATH = "C:\\Users\\romak\\Desktop\\LabJava15";
-    //   /Users/max/Desktop/LabJava/Old/
+    public static final String DIR_PATH = "C:\\Users\\romak\\Desktop\\logs";
+    //   /Users/max/Desktop/logs
 
     public static void main(String[] args) throws InterruptedException, IOException, ExecutionException {
 
@@ -19,7 +20,7 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Enter the source directory:");
-            String sourceDirectory = scanner.nextLine();
+            String sourceDirectory = "/Users/max/Desktop/logs";
 
             while (!new File(sourceDirectory).exists()) {
                 System.out.println("Enter the existing source directory");
@@ -39,18 +40,20 @@ public class Main {
                 t.start();
             }
 
-            List<String> listToWrite = new ArrayList<>();
+          //  List<String> listToWrite = new ArrayList<>();
+        StringBuilder listToWrite = new StringBuilder();
 
             for (FutureTask f : futureTasks) {
                 System.out.println("\n");
                 String string = writer.parse(f.get().toString());
-                listToWrite.add(string);
+                listToWrite.append(string);
             }
-        for (int counter = 0; counter <listToWrite.size(); counter++) {
-            writer.write(listToWrite.get(counter),counter);
 
-        }
+            writer.write(listToWrite.toString());
 
             System.out.println(listToWrite);
         }
+
+        public static int counter = 1;
+
     }
