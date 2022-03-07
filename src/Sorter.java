@@ -7,9 +7,12 @@ public class Sorter {
         StringBuilder stringBuilder = new StringBuilder();
         char [] chars = input.toCharArray();
         for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == '[')
-                stringBuilder.insert(i,"\n");
-
+            if (i < chars.length-3) {
+                if (chars[i] == 'E')
+                    if (chars[i + 1] == 'A')
+                        if (chars[i + 2] == 'A')
+                            stringBuilder.insert(i, "\n");
+            }
             stringBuilder.append(chars[i]);
         }
 
