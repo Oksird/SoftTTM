@@ -10,11 +10,20 @@ public class FileFinder {
             if (fileEntry.isDirectory()) {
                 list.addAll(listFilesForFolder(fileEntry));
             } else {
+              /*
                 if (fileEntry.getAbsolutePath().endsWith("Cookies_JSON.txt")) {
                     list.add(fileEntry.getAbsolutePath());
                     System.out.println("Path is added");
                 }
+
+
+
                 if (fileEntry.getAbsolutePath().endsWith("User_Agent.txt")) {
+                    list.add(fileEntry.getAbsolutePath());
+                    System.out.println("Path is added");
+                }
+*/
+                if (fileEntry.getAbsolutePath().endsWith("Token_EAAB.txt")) {
                     list.add(fileEntry.getAbsolutePath());
                     System.out.println("Path is added");
                 }
